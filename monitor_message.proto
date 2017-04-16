@@ -1,0 +1,61 @@
+message CommandHead 
+{
+    required uint32 cmdId = 1;
+    required uint32 cmdLength = 2;
+}
+
+message DeviceInfo
+{
+	required CommandHead head = 1;
+	required string hostName = 2;
+	required string system = 3;
+	required string hardware = 4;
+	required string nodeName = 5;
+	required string version = 6;
+	required string memorySize = 7;
+	required string harddiskSize = 8;
+}
+
+message CurrentResourceUsage
+{
+	required CommandHead head = 1;
+	required float cpuUsageRate = 2;
+	required float memoryUsageRate = 3;
+	required float harddiskUsageRate = 4;
+}
+
+enum ServiceStatus 
+{
+	STOPPING = 0;
+    RUNNING = 1;
+}
+
+message ScadaServiceStatus
+{
+	required CommandHead head = 1;
+	required ServiceStatus ScadaServersStatus = 2;
+	required ServiceStatus CheckTimeServerStatus = 3;
+	required ServiceStatus FileDLSvrStatus = 4;
+	required ServiceStatus FileDLProxyStatus = 5;
+}
+
+message ScadaVersion
+{
+	required CommandHead head = 1;
+	required string ScadaPlatformVer = 2;
+	required string ScadaAppVer = 3;
+	required string BuildVer = 4;
+	required string DownloadVer = 5;
+}
+
+message SyncFileInfo
+{
+	required string FileName = 1;
+	required string TargetPath = 2;
+}
+
+message SyncFileInfoList
+{
+	required CommandHead head = 1;
+	repeated SyncFileInfo syncList = 2;
+}
