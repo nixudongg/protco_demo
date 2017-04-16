@@ -1,4 +1,0 @@
-This is the first git.
-Hello world.
-The git is a free software.
-add new line.
